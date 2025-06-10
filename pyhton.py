@@ -1,9 +1,9 @@
 import os
 import telebot, requests, io
 
-TOKEN = os.environ.get("7569794171:AAHc-P4ilg7tujauHjkSoJo5O02rI-rEZ88")
-API_KEY = os.environ.get("S8Wdntg9HbQP2bs8oKf3uaP6")
-ADMIN_ID = int(os.environ.get("1799220737"))
+TOKEN = os.environ.get("TOKEN")
+API_KEY = os.environ.get("API_KEY")
+ADMIN_ID = int(os.environ.get("ADMIN_ID"))
 
 bot = telebot.TeleBot(TOKEN)
 
