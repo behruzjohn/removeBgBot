@@ -1,11 +1,11 @@
+import os
 import telebot, requests, io
 
-TOKEN = "7569794171:AAHc-P4ilg7tujauHjkSoJo5O02rI-rEZ88"
-API_KEY = "S8Wdntg9HbQP2bs8oKf3uaP6"
-ADMIN_ID = 1799220737
+TOKEN = os.environ.get("7569794171:AAHc-P4ilg7tujauHjkSoJo5O02rI-rEZ88")
+API_KEY = os.environ.get("S8Wdntg9HbQP2bs8oKf3uaP6")
+ADMIN_ID = int(os.environ.get("1799220737"))
 
 bot = telebot.TeleBot(TOKEN)
-
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
@@ -18,11 +18,9 @@ def welcome(message):
     parse_mode="Markdown"
 )
 
-
-
 @bot.message_handler(func=lambda message: message.text and message.text.lower() == "6789")
 def check_code(message):
-   bot.send_message(message.chat.id,
+    bot.send_message(message.chat.id,
     "👤 *Behruzjon haqida ma’lumotlar:*\n\n"
     "🔹 Telegram: [@Behruzjon6789](https://t.me/Behruzjon6789)\n"
     "📱 Telefon: +998 99 484 67 89\n"
@@ -31,12 +29,9 @@ def check_code(message):
     parse_mode="Markdown"
 )
 
-
-
 @bot.message_handler(func=lambda message: message.text and message.text.strip().startswith("@"))
 def forward_username_to_admin(message):
     username = message.text.strip()
-
     bot.send_message(ADMIN_ID,
         f"📩 Yangi username yuborildi:\n"
         f"🔸 Username: {username}\n"
